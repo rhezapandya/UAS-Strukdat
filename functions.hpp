@@ -1,9 +1,10 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <windows.h>
 
 struct nasabah {
-    int kode;
+    std::string kode;
     std::string nama;
     std::string jaminan;
     std::string pekerjaan;
@@ -11,19 +12,21 @@ struct nasabah {
     nasabah *next;
 };
 typedef nasabah* pointer;
+typedef pointer list;
 
-void new_element(pointer &pBaru, std::string data1, std::string data2, std::string data3, std::string data4){
+void new_element(pointer &pBaru, std::string kode, std::string nama, std::string jaminan, std::string pekerjaan, std::string npl){
     pBaru = new nasabah;
-    pBaru->nama = data1;
-    pBaru->jaminan = data2;
-    pBaru->pekerjaan = data3;
-    pBaru->npl = data4;
+    pBaru->kode = kode;
+    pBaru->nama = nama;
+    pBaru->jaminan = jaminan;
+    pBaru->pekerjaan = pekerjaan;
+    pBaru->npl = npl;
     pBaru->next = nullptr;
 }
 
-void insert_last(pointer &head, std::string data1, std::string data2, std::string data3, std::string data4){
+void insert_last(pointer &head, std::string kode, std::string nama, std::string jaminan, std::string pekerjaan, std::string npl){
     pointer pBaru;
-    new_element(pBaru, data1, data2, data3, data4);
+    new_element(pBaru, kode, nama, jaminan, pekerjaan, npl);
     pointer curr = head;
         while(curr->next != nullptr){
             curr = curr->next;
@@ -31,65 +34,50 @@ void insert_last(pointer &head, std::string data1, std::string data2, std::strin
         curr ->next = pBaru;
 }
 
-void traversal(pointer &head){
+void search(pointer &head, pointer &pBantu, std::string key) 
+{ 
+    pBantu = head;
+    while (pBantu != nullptr) 
+    { 
+        if (pBantu->kode == key) {
+            break;
+        }
+        pBantu = pBantu->next; 
+    } 
+} 
+
+void delete_by_key(pointer &head, pointer &p_delete, std::string key){
+    search(head, p_delete, key);
+        if (head == nullptr || p_delete == nullptr) {
+        std::cout << "Data nasabah tidak ditemukan!\n\n";
+        } else {
+            if (p_delete == head) {
+            head = head->next;
+            p_delete->next = nullptr;
+            } else if (p_delete->next == nullptr) {
+            pointer pre = head;
+            while (pre->next != p_delete) {
+                pre = pre->next;
+            }
+            pre->next = nullptr;
+            } else {
+            pointer pre = head;
+            while (pre->next != p_delete) {
+                pre = pre->next;
+            }
+            pre->next = p_delete->next;
+            p_delete->next = nullptr;
+            }
+            delete p_delete;
+        }
+}
+
+void traversal(list &head){
     pointer curr = head;
     int i = 1;
     while(curr != nullptr){
-        std::cout << i << " | " << curr->nama << "\n";
+        std::cout << i << " | " << curr->kode << " | " << curr->nama << " | " << curr->jaminan << " | " << curr->pekerjaan << " | " << curr->npl << " | " << "\n";
         curr = curr -> next;
         i++;
-    }
-}
-
-void decision_tree() {
-    char jaminan, pekerjaan, npl;
-    std::cout << "Jaminan : [L]ogam Mulia / [B]PKB / [S]HM ? > "; std::cin >> jaminan;
-    if (jaminan == 'L' || jaminan == 'l') {
-        std::cout << "Kelas Mikro";
-    }
-    else if (jaminan == 'B' || jaminan == 'b') {
-        std::cout << "Pekerjaan : [S]wasta / [W]iraswasta ? > "; std::cin >> pekerjaan;
-        if (pekerjaan == 'S' || pekerjaan == 's') {
-            std::cout << "Kelas Sedang";
-        }
-        else if (pekerjaan == 'W' || pekerjaan == 'w') {
-            std::cout << "NPL : [B]aik / [b]ermasalah ? > "; std::cin >> npl;
-            if (npl == 'B') {
-                std::cout << "Kelas Atas";
-            }
-            else if (npl == 'b') {
-                std::cout << "Kelas Mikro";
-            }
-            else {
-                std::cout << "Input Salah !!!";
-            }
-        }
-        else {
-            std::cout << "Input Salah !!!";
-        }
-    }
-    else if (jaminan == 'S' || jaminan == 's') {
-        std::cout << "Pekerjaan : [P]NS / [S]wasta ? > "; std::cin >> pekerjaan;
-        if (pekerjaan == 'P' || pekerjaan == 'p') {
-            std::cout << "Kelas Atas";
-        }
-        else if (pekerjaan == 'S' || pekerjaan == 's') {
-            std::cout << "NPL : [B]aik / [b]ermasalah ? > "; std::cin >> npl;
-            if (npl == 'B') {
-                std::cout << "Kelas Atas dan Kelas Sedang";
-            }
-            else if (npl == 'b') {
-                std::cout << "Kelas Mikro";
-            }
-            else {
-                std::cout << "Input Salah !!!";
-            }
-        }
-        else {
-            std::cout << "Input Salah !!!";
-        }
-    }
-    else {
-        std::cout << "Input Salah !!!";
     }
 }
