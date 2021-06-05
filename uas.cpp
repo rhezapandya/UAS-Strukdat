@@ -10,11 +10,16 @@ int main(){
             case 1:
                 break;
             case 2:
-                klasifikasi();
                 break;
             case 3:
+                klasifikasi();
                 break;
             case 4:
+                break;
+            case 5:
+                anggota();
+                break;
+            case 6:
                 system("cls");
                 exit(0);
                 break;
