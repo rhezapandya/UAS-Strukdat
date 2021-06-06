@@ -42,6 +42,12 @@ void search(pointer &head, pointer &pBantu, std::string key)
         if (pBantu->kode == key) {
             break;
         }
+        else {
+            system("cls");
+            std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
+            system("pause");
+            system("cls");
+        }
         pBantu = pBantu->next; 
     } 
 } 
@@ -49,7 +55,7 @@ void search(pointer &head, pointer &pBantu, std::string key)
 void delete_by_key(pointer &head, pointer &p_delete, std::string key){
     search(head, p_delete, key);
         if (head == nullptr || p_delete == nullptr) {
-        std::cout << "Data nasabah tidak ditemukan!\n\n";
+        std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
         } else {
             if (p_delete == head) {
             head = head->next;
@@ -72,12 +78,17 @@ void delete_by_key(pointer &head, pointer &p_delete, std::string key){
         }
 }
 
-void traversal(list &head){
+void traversal_data_nasabah(list &head){
     pointer curr = head;
     int i = 1;
     while(curr != nullptr){
-        std::cout << i << " | " << curr->kode << " | " << curr->nama << " | " << curr->jaminan << " | " << curr->pekerjaan << " | " << curr->npl << "\n";
-        curr = curr -> next;
+        std::cout << "| " << std::setiosflags(std::ios::left) << std::setw(4) << i << std::setfill(' ') << "|";
+        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(5) << curr->kode << std::setfill(' ') << "|";
+        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(25) << curr->nama << std::setfill(' ') << "|";
+        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(12) << curr->jaminan << std::setfill(' ') << "|";
+        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(11) << curr->pekerjaan << std::setfill(' ') << "|";
+        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(11) << curr->npl << std::setfill(' ') << "|\n";
+        curr = curr->next;
         i++;
     }
 }

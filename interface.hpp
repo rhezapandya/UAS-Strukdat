@@ -8,7 +8,7 @@ void header(std::string judul) {
 }
 void tampilan_judul_submenu(std::string judul_submenu){
     std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << "\n";
-    std::cout << judul_submenu << "\n";
+    std::cout << "\t" << judul_submenu << "\n";
     std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << "\n";
 }
 void main_menu() {
@@ -39,7 +39,7 @@ void loading()
 }
 void error() {
     system("cls");
-    std::cout << "Input Salah !!!\n\n";
+    std::cout << "Input Salah !!!";
     system("pause");
     system("cls");
 }
@@ -47,34 +47,38 @@ void error() {
 // Menu 1 : Data Nasabah Bank
 void tampilan_data_nasabah(list &head){
     tampilan_judul_submenu("        Data Nasabah Bank");
-    std::cout << "Layout Data\nNomor | Kode Nasabah | Nama Nasabah | Jaminan | Pekerjaan | NPL\n\n";
-    std::cout << "Data Nasabah Bank\n";
-    traversal(head);
+    std::cout << "| " << "No |";
+    std::cout << " " << "Kode |";
+    std::cout << " " << "\t\tNama\t       |";
+    std::cout << " " << "  Jaminan   |";
+    std::cout << " " << " Pekerjaan |";
+    std::cout << " " << "\tNPL    |\n";
+    traversal_data_nasabah(head);
     std::cout << "\n";
 }
 
 // Menu 2 : Input Data Nasabah Bank Baru
 void menu_level_1(){
-    std::cout << "Masukkan Jaminan!\n";
-    std::cout << "[L] -> Logam Mulia\n";
-    std::cout << "[B] -> BPKB\n";
-    std::cout << "[S] -> SHM\n";
+    std::cout << "Masukkan Jaminan !\n";
+    std::cout << "[L] -> Logam Mulia (LM)\n";
+    std::cout << "[B] -> Bukti Kepemilikan Kendaraan Bermotor (BPKB)\n";
+    std::cout << "[S] -> Sertifikat Hak Milik (SHM)\n";
     std::cout << "Jaminan : ";
 }
 void menu_level_2_left(){
-    std::cout << "Masukkan Pekerjaan!\n";
+    std::cout << "Masukkan Pekerjaan !\n";
     std::cout << "[W] : Wiraswasta\n";
     std::cout << "[S] : Swasta\n";
     std::cout << "Pekerjaan : "; 
 }
 void menu_level_3_left(){
-    std::cout << "Masukkan NPL!\n";
+    std::cout << "Masukkan NPL !\n";
     std::cout << "[B] : Baik\n";
-    std::cout << "[b] : bermasalah)\n";
+    std::cout << "[b] : Bermasalah)\n";
     std::cout << "NPL : ";
 }
 void menu_level_2_right(){
-    std::cout << "Masukkan Pekerjaan\n";
+    std::cout << "Masukkan Pekerjaan !\n";
     std::cout << "[P] : PNS\n";
     std::cout << "[S] : Swasta\n";
     std::cout << "Pekerjaan : ";
@@ -105,12 +109,6 @@ void klasifikasi() {
     std::cout << "                                          K. Atas      \n\n";
     system("pause");
     system("cls");
-}
-
-// Menu 4 : Jalankan Pengklasifikasian
-void program_klasifikasi(){
-    
-    
 }
 
 // Menu 5 : Program Developer
