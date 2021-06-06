@@ -5,7 +5,7 @@ int main(){
     int banyak_data;
     char pil1, pil2, pil3;
 
-    // Data Nasabah
+    // Deklarasi Data Nasabah
     std::string kode;
     std::string nama;
     std::string jaminan;
@@ -14,52 +14,58 @@ int main(){
     std::string key;
     pointer p_help, p_delete;
     list first = nullptr;
-    new_element(first, "N001", "Affan Gans", "Logam Mulia", "-", "-");
-    insert_last(first, "N002", "Rheza GTG", "BPKB", "Swasta", "-");
-    insert_last(first, "N003", "Babi", "BPKB", "Wiraswasta", "Baik");
 
+    // Data Nasabah Awal
+    new_element(first, "N001", "Contoh 1", "Logam Mulia", "NULL", "NULL");
+    insert_last(first, "N002", "Contoh 2", "BPKB", "Swasta", "NULL");
+    insert_last(first, "N003", "Contoh 3", "BPKB", "Wiraswasta", "Baik");
+
+    loading();
     do {
-        system("cls");
         header("  Program Klasifikasi Data Nasabah Bank  ");
         main_menu();
         std::cout << "Opsi : "; std::cin >> opsi_main_menu;
         switch(opsi_main_menu){
             case 1:
-            system("cls");
-            traversal(first);
+            loading();
+            tampilan_data_nasabah(first);
             system("pause");
             system("cls");
             break;
 
             case 2:
             system("cls");
-            std::cout << "Masukkan banyak data : "; std::cin >> banyak_data;
+            tampilan_judul_submenu("Input Data Nasabah Bank Baru");
+            std::cout << "Masukkan Banyak Data : "; std::cin >> banyak_data;
             system("cls");
             for (int i = 1; i <= banyak_data; i++) {
                 do {
-                    std::cout << "< Data " << i << " >" << std::endl;
+                    std::cout << "[ Data " << i << " ]" << std::endl;
                     std::cout << "Masukkan Kode : "; std::cin >> kode; 
                     std::cout << "Masukkan Nama : "; std::getline(std::cin >> std::ws, nama); 
-                    std::cout << "Masukkan Jaminan ([L]ogam Mulia / [B]PKB / [S]HM) : "; std::cin >> pil1;
+                    menu_level_1();
+                    std::cin >> pil1;
                     if (pil1 == 'L') {
                         jaminan = "Logam Mulia";
-                        pekerjaan = "-";
-                        npl = "-";
+                        pekerjaan = "NULL";
+                        npl = "NULL";
                         system("cls");
                         break;
                     }
                     else if (pil1 == 'B') {
                         jaminan = "BPKB";
-                        std::cout << "Masukkan Pekerjaan ([W]iraswasta / [S]wasta) : "; std::cin >> pil2;
+                        menu_level_2_left();
+                        std::cin >> pil2;
                         if (pil2 == 'S' || pil2 == 's') {
                             pekerjaan = "Swasta";
-                            npl = "-";
+                            npl = "NULL";
                             system("cls");
                             break;
                         }
                         else if (pil2 == 'W') {
                             pekerjaan = "Wiraswasta";
-                            std::cout << "Masukkan NPL ([B]aik / [b]ermasalah) : "; std::cin >> pil3;
+                            menu_level_3_left();
+                            std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
                                 system("cls");
@@ -76,7 +82,8 @@ int main(){
                     }
                     else if (pil1 == 'S') {
                         jaminan = "SHM";
-                        std::cout << "Masukkan Pekerjaan ([P]NS / [S]wasta) : "; std::cin >> pil2;
+                        menu_level_2_right();
+                        std::cin >> pil2;
                         if (pil2 == 'P') {
                             pekerjaan = "PNS";
                             npl = "-";
@@ -95,18 +102,22 @@ int main(){
                 } while (pil1 != 'L' || (pil1 != 'B' && pil2 == 'W' && pil3 == 'B')
                         || (pil1 != 'B' && pil2 == 'W' && pil3 == 'b') || (pil1 != 'B' && pil2 != 'S')
                         || (pil1 != 'S' && pil2 != 'P') || (pil1 != 'S' && pil2 != 'S'));
-                insert_last(first, kode, nama, jaminan, pekerjaan, npl);
+                insert_last(first, kode, nama, jaminan, pekerjaan, npl); 
             }
+            loading();
             break;
 
             case 3:
+            loading();
             klasifikasi();
             break;
 
             case 4:
+            
             break;
             
             case 5:
+            loading();
             anggota();
             break;
 
@@ -116,11 +127,8 @@ int main(){
             break;
 
             default:
-            system("cls");
-            std::cout << "Input Salah! Silahkan Coba Lagi!\n";
-            system("pause");
-            system("cls");
+            error();
             break;
         }
-    } while (opsi_main_menu != 4);
+    } while (opsi_main_menu != 6);
 }

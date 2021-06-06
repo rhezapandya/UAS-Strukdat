@@ -76,7 +76,7 @@ void traversal(list &head){
     pointer curr = head;
     int i = 1;
     while(curr != nullptr){
-        std::cout << i << " | " << curr->kode << " | " << curr->nama << " | " << curr->jaminan << " | " << curr->pekerjaan << " | " << curr->npl << " | " << "\n";
+        std::cout << i << " | " << curr->kode << " | " << curr->nama << " | " << curr->jaminan << " | " << curr->pekerjaan << " | " << curr->npl << "\n";
         curr = curr -> next;
         i++;
     }
