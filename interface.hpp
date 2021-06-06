@@ -37,6 +37,7 @@ void loading()
     }
     system("cls");
 }
+
 void error() {
     system("cls");
     std::cout << "Input Salah !!!";

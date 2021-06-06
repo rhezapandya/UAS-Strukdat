@@ -42,13 +42,7 @@ void search(pointer &head, pointer &pBantu, std::string key)
         if (pBantu->kode == key) {
             break;
         }
-        else {
-            system("cls");
-            std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
-            system("pause");
-            system("cls");
-        }
-        pBantu = pBantu->next; 
+        pBantu = pBantu->next;
     } 
 } 
 

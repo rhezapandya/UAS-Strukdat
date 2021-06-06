@@ -127,47 +127,55 @@ int main(){
             system("cls");
             std::cout << "Masukkan Kode Nasabah : "; std::cin >> kode;
             search(first, p_help, kode);
-            if (p_help->jaminan == "Logam Mulia") {
-                loading();
-                std::cout << "Kelas Mikro\n";
+            if (p_help != nullptr) {
+                if (p_help->jaminan == "Logam Mulia") {
+                    loading();
+                    std::cout << "Kelas Mikro\n";
+                    system("pause");
+                    system("cls");
+                }
+                else if (p_help->jaminan == "BPKB") {
+                    if (p_help->pekerjaan == "Swasta") {
+                        loading();
+                        std::cout << "Kelas Sedang\n";
+                        system("pause");
+                        system("cls");
+                    }
+                    else if (p_help->pekerjaan == "Wiraswasta") {
+                        if (p_help->npl == "Baik") {
+                            loading();
+                            std::cout << "Kelas Atas\n";
+                            system("pause");
+                            system("cls");
+                        }
+                        else if (p_help->npl == "Bermasalah") {
+                            loading();
+                            std::cout << "Kelas Mikro\n";
+                            system("pause");
+                            system("cls");
+                        }
+                    }
+                }
+                else if (p_help->jaminan == "SHM") {
+                    if (p_help->pekerjaan == "PNS") {
+                        loading();
+                        std::cout << "Kelas Sedang\n";
+                        system("pause");
+                        system("cls");
+                    }
+                    else if (p_help->pekerjaan == "Swasta") {
+                        loading();
+                        std::cout << "Kelas Sedang dan Kelas Atas\n";
+                        system("pause");
+                        system("cls");
+                    }
+                }
+            }
+            else {
                 system("cls");
+                std::cout << "Data nasabah tidak ditemukan !\n\n";
                 system("pause");
-            }
-            else if (p_help->jaminan == "BPKB") {
-                if (p_help->pekerjaan == "Swasta") {
-                    loading();
-                    std::cout << "Kelas Sedang\n";
-                    system("pause");
-                    system("cls");
-                }
-                else if (p_help->pekerjaan == "Wiraswasta") {
-                    if (p_help->npl == "Baik") {
-                        loading();
-                        std::cout << "Kelas Atas\n";
-                        system("pause");
-                        system("cls");
-                    }
-                    else if (p_help->npl == "Bermasalah") {
-                        loading();
-                        std::cout << "Kelas Mikro\n";
-                        system("pause");
-                        system("cls");
-                    }
-                }
-            }
-            else if (p_help->jaminan == "SHM") {
-                if (p_help->pekerjaan == "PNS") {
-                    loading();
-                    std::cout << "Kelas Sedang\n";
-                    system("pause");
-                    system("cls");
-                }
-                else if (p_help->pekerjaan == "Swasta") {
-                    loading();
-                    std::cout << "Kelas Sedang dan Kelas Atas\n";
-                    system("pause");
-                    system("cls");
-                }
+                system("cls");
             }
             break;
             
