@@ -92,3 +92,10 @@ void anggota() {
     std::cout << "1. Affan Rifqy Kurniadi - 140810200003\n";
     std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n";
 }
+
+void error() {
+    system("cls");
+    std::cout << "Input Salah !!!\n\n";
+    system("pause");
+    system("cls");
+}
