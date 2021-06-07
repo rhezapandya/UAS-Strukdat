@@ -16,7 +16,7 @@ int main(){
     list first = nullptr;
 
     // Data Nasabah Awal
-    new_element(first, "N001", "Contoh 1", "Logam Mulia", "PNS", "Baik");
+    new_element(first, "N001", "Contoh 1", "LM", "PNS", "Baik");
     insert_last(first, "N002", "Contoh 2", "BPKB", "Swasta", "Bermasalah");
     insert_last(first, "N003", "Contoh 3", "BPKB", "Wiraswasta", "Baik");
 
