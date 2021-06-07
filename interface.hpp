@@ -8,17 +8,18 @@ void header(std::string judul) {
 }
 void tampilan_judul_submenu(std::string judul_submenu, int batas){
     std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
-    std::cout << "\t" << judul_submenu << std::endl;
+    std::cout << judul_submenu << std::endl;
     std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
 }
 void main_menu() {
-    std::cout << "\nMain Menu\n";
+    std::cout << "\n\t       [ Main Menu ]\n\n";
     std::cout << "1. Data Nasabah Bank\n";
     std::cout << "2. Input Data Nasabah Bank Baru\n";
     std::cout << "3. Mekanisme Pengklasifikasian\n";
     std::cout << "4. Jalankan Pengklasifikasian\n";
     std::cout << "5. Program Developer\n";
     std::cout << "6. Keluar Program\n";
+    std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
 }
 void loading()
 {
@@ -47,7 +48,7 @@ void error() {
 
 // Menu 1 : Data Nasabah Bank
 void tampilan_data_nasabah(list &head) {
-    tampilan_judul_submenu("\t\t\t\tData Nasabah Bank", 80);
+    tampilan_judul_submenu("\t\t\t\tDATA NASABAH BANK", 80);
     std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     std::cout << "| " << "No |";
     std::cout << " " << "Kode |";
@@ -96,7 +97,7 @@ void menu_level_3_full(){
     std::cout << "NPL : ";
 }
 void menu_level_3_swasta(){
-    std::cout << "Masukkan NPL(Non-Performing Loan) Anda!\n";
+    std::cout << "Masukkan NPL (Prestasi) Anda!\n";
     std::cout << "[B] -> Baik\n";
     std::cout << "[b] -> Bermasalah\n";
     std::cout << "NPL : ";
@@ -105,7 +106,7 @@ void menu_level_3_swasta(){
 // Menu 3 : Mekanisme Pengklasifikasian
 void klasifikasi() {
     system("cls");
-    tampilan_judul_submenu("\tMekanisme Pengklasifikasian", 40);
+    tampilan_judul_submenu("\tMEKANISME PENGKLASIFIKASIAN", 40);
     std::cout << "Overview Pengklasifikasian\n\n";
     std::cout << "               JAMINAN                                 \n";
     std::cout << "     _____________|________________                    \n";
@@ -133,7 +134,7 @@ void klasifikasi() {
 // Menu 4 : Jalankan Pengklasifikasian
 void tampilan_menu_klasifikasi(list &head, std::string kelas){
     loading();
-    tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
+    tampilan_judul_submenu("\t   KLASIFIKASI NASABAH", 40);
     std::cout << "Kode Nasabah      : " << head->kode << "\n";
     std::cout << "Nama Nasabah      : " << head->nama << "\n";
     std::cout << "Jaminan Nasabah   : " << head->jaminan << "\n";
@@ -148,7 +149,7 @@ void tampilan_menu_klasifikasi(list &head, std::string kelas){
 // Menu 5 : Program Developer
 void anggota() {
     system("cls");
-    tampilan_judul_submenu("\tProgram Developer", 40);
+    tampilan_judul_submenu("\t   PROGRAM DEVELOPER", 40);
     std::cout << "This Program is Developed by : \n";
     std::cout << "1. Affan Rifqy Kurniadi - 140810200003\n";
     std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n\n";

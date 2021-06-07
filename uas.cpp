@@ -21,53 +21,55 @@ int main(){
 
     loading();
     do {
-        header("  Program Klasifikasi Data Nasabah Bank  ");
+        header("  PROGRAM KLASIFIKASI DATA NASABAH BANK  ");
         main_menu();
         std::cout << "Opsi : "; std::cin >> opsi_main_menu;
         switch(opsi_main_menu){
             case 1:
             loading();
             tampilan_data_nasabah(first);
+            std::cout << std::endl;
             system("pause");
             system("cls");
             break;
 
             case 2:
             loading();
-            tampilan_judul_submenu("\tInput Data Nasabah Bank Baru", 40);
+            tampilan_judul_submenu("\tINPUT DATA NASABAH BANK BARU", 40);
             std::cout << "Masukkan Banyak Data : "; std::cin >> banyak_data;
             std::cout << "\n";
             for (int i = 1; i <= banyak_data; i++) {
-                std::cout << "\t\t [ Data " << i << " ]\n";
+                system("cls");
+                std::cout << "\t\t [ Data " << i << " ]\n\n";
                 std::cout << "Masukkan Kode : "; std::cin >> kode; 
                 std::cout << "Masukkan Nama : "; std::getline(std::cin >> std::ws, nama);
-                std::cout << "\n";
                 do {
+                    std::cout << '\n';
                     menu_level_1();
                     std::cin >> pil1;
                     if (pil1 == 'L') {
                         jaminan = "LM";
-                        std::cout << "\n";
+                        std::cout << '\n';
                         menu_level_2_full();
                         std::cin >> pil2;
                         if (pil2 == 'W') {
                             pekerjaan = "Wiraswasta";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_full();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'T') {
                                 npl = "-";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -75,22 +77,22 @@ int main(){
                         }
                         else if (pil2 == 'S') {
                             pekerjaan = "Swasta";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_full();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'T') {
                                 npl = "-";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -98,22 +100,22 @@ int main(){
                         }
                         else if (pil2 == 'P') {
                             pekerjaan = "PNS";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_full();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'T') {
                                 npl = "-";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -121,22 +123,22 @@ int main(){
                         }
                         else if (pil2 == 'L') {
                             pekerjaan = "Lainnya";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_full();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'T') {
                                 npl = "-";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -147,22 +149,22 @@ int main(){
                     }
                     else if (pil1 == 'B') {
                         jaminan = "BPKB";
-                        std::cout << "\n";
+                        std::cout << '\n';
                         menu_level_2_bpkb();
                         std::cin >> pil2;
                         if (pil2 == 'W') {
                             pekerjaan = "Wiraswasta"; 
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_swasta();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -170,22 +172,22 @@ int main(){
                         }
                         else if (pil2 == 'S') {
                             pekerjaan = "Swasta";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_full();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'T') {
                                 npl = "-";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -196,27 +198,27 @@ int main(){
                     }
                     else if (pil1 == 'S') {
                         jaminan = "SHM";
-                        std::cout << "\n";
+                        std::cout << '\n';
                         menu_level_2_shm();
                         std::cin >> pil2;
                         if (pil2 == 'P') {
                             pekerjaan = "PNS";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             menu_level_3_full();
                             std::cin >> pil3;
                             if (pil3 == 'B') {
                                 npl = "Baik";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'b') {
                                 npl = "Bermasalah";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else if (pil3 == 'T') {
                                 npl = "-";
-                                system("cls");
+                                std::cout << '\n';
                                 break;
                             }
                             else error();
@@ -224,7 +226,7 @@ int main(){
                         }
                         else if (pil2 == 'S') {
                             pekerjaan = "Swasta";
-                            std::cout << "\n";
+                            std::cout << '\n';
                             std::cout << "NPL Anda Tergolong Baik!\n\n";
                             npl = "Baik";
                             system("pause");
@@ -247,7 +249,7 @@ int main(){
 
             case 4:
             system("cls");
-            tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
+            tampilan_judul_submenu("\t   KLASIFIKASI NASABAH", 40);
             std::cout << "Masukkan Kode Nasabah : "; std::cin >> kode;
             search(first, p_help, kode);
             if (p_help != nullptr) {
