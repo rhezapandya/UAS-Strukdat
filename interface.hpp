@@ -3,13 +3,13 @@
 // General
 void header(std::string judul) {
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
-    std::cout << judul << "\n";
+    std::cout << judul << std::endl;
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
 }
 void tampilan_judul_submenu(std::string judul_submenu){
-    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << "\n";
-    std::cout << "\t" << judul_submenu << "\n";
-    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << "\n";
+    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << std::endl;
+    std::cout << "\t" << judul_submenu << std::endl;
+    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << std::endl;
 }
 void main_menu() {
     std::cout << "\nMain Menu\n";
@@ -40,45 +40,54 @@ void loading()
 
 void error() {
     system("cls");
-    std::cout << "Input Salah !!!";
+    std::cout << "Input Salah !!!\n\n";
     system("pause");
     system("cls");
 }
 
 // Menu 1 : Data Nasabah Bank
-void tampilan_data_nasabah(list &head){
+void tampilan_data_nasabah(list &head) {
     tampilan_judul_submenu("        Data Nasabah Bank");
+    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     std::cout << "| " << "No |";
     std::cout << " " << "Kode |";
     std::cout << " " << "\t\tNama\t       |";
     std::cout << " " << "  Jaminan   |";
     std::cout << " " << " Pekerjaan |";
     std::cout << " " << "\tNPL    |\n";
+    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     traversal_data_nasabah(head);
-    std::cout << "\n";
+    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
 }
 
 // Menu 2 : Input Data Nasabah Bank Baru
-void menu_level_1(){
+void menu_level_1() {
     std::cout << "Masukkan Jaminan !\n";
     std::cout << "[L] -> Logam Mulia (LM)\n";
     std::cout << "[B] -> Bukti Kepemilikan Kendaraan Bermotor (BPKB)\n";
     std::cout << "[S] -> Sertifikat Hak Milik (SHM)\n";
     std::cout << "Jaminan : ";
 }
-void menu_level_2_left(){
+void menu_level_1_pekerjaan() {
+    std::cout << "Masukkan Pekerjaan !" << std::endl;
+    std::cout << "[P] : PNS\n";
+    std::cout << "[W] : Wiraswasta\n";
+    std::cout << "[S] : Swasta\n";
+    std::cout << "Pekerjaan : ";
+}
+void menu_level_2_left() {
     std::cout << "Masukkan Pekerjaan !\n";
     std::cout << "[W] : Wiraswasta\n";
     std::cout << "[S] : Swasta\n";
     std::cout << "Pekerjaan : "; 
 }
-void menu_level_3_left(){
+void menu_level_3_left() {
     std::cout << "Masukkan NPL !\n";
     std::cout << "[B] : Baik\n";
-    std::cout << "[b] : Bermasalah)\n";
+    std::cout << "[b] : Bermasalah\n";
     std::cout << "NPL : ";
 }
-void menu_level_2_right(){
+void menu_level_2_right() {
     std::cout << "Masukkan Pekerjaan !\n";
     std::cout << "[P] : PNS\n";
     std::cout << "[S] : Swasta\n";
@@ -117,7 +126,7 @@ void anggota() {
     system("cls");
     std::cout << "Developed by : \n";
     std::cout << "1. Affan Rifqy Kurniadi - 140810200003\n";
-    std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n";
+    std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n" << std::endl;
     system("pause");
     system("cls");
 }

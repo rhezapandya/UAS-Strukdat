@@ -16,8 +16,8 @@ int main(){
     list first = nullptr;
 
     // Data Nasabah Awal
-    new_element(first, "N001", "Contoh 1", "Logam Mulia", "NULL", "NULL");
-    insert_last(first, "N002", "Contoh 2", "BPKB", "Swasta", "NULL");
+    new_element(first, "N001", "Contoh 1", "Logam Mulia", "PNS", "Baik");
+    insert_last(first, "N002", "Contoh 2", "BPKB", "Swasta", "Bermasalah");
     insert_last(first, "N003", "Contoh 3", "BPKB", "Wiraswasta", "Baik");
 
     loading();
@@ -39,7 +39,7 @@ int main(){
             std::cout << "Masukkan Banyak Data : "; std::cin >> banyak_data;
             for (int i = 1; i <= banyak_data; i++) {
                 system("cls");
-                std::cout << "\t\t [ Data " << i << " ]" << std::endl;
+                std::cout << "\t\t [ Data " << i << " ]\n" << std::endl;
                 std::cout << "Masukkan Kode : "; std::cin >> kode; 
                 std::cout << "Masukkan Nama : "; std::getline(std::cin >> std::ws, nama);
                 do {
@@ -48,9 +48,64 @@ int main(){
                     std::cin >> pil1;
                     if (pil1 == 'L') {
                         jaminan = "Logam Mulia";
-                        pekerjaan = "NULL";
-                        npl = "NULL";
-                        system("cls");
+                        do {
+                            system("cls");
+                            menu_level_1_pekerjaan();
+                            std::cin >> pil2;
+                            if (pil2 == 'P') {
+                                pekerjaan = "PNS";
+                                do {
+                                    system("cls");
+                                    menu_level_3_left();
+                                    std::cin >> pil3;
+                                    if (pil3 == 'B') {
+                                        npl = "Baik"; 
+                                        break;
+                                    }
+                                    else if (pil3 == 'b') {
+                                        npl = "Bermasalah";
+                                        break;
+                                    }
+                                    else error();
+                                } while (pil3 != 'B' || pil3 != 'b');
+                                break;
+                            }
+                            else if (pil2 == 'W') {
+                                do {
+                                    system("cls");
+                                    menu_level_3_left();
+                                    std::cin >> pil3;
+                                    if (pil3 == 'B') {
+                                        npl = "Baik"; 
+                                        break;
+                                    }
+                                    else if (pil3 == 'b') {
+                                        npl = "Bermasalah";
+                                        break;
+                                    }
+                                    else error();
+                                } while (pil3 != 'B' || pil3 != 'b');
+                                break;
+                            }
+                            else if (pil2 == 'S') {
+                                do {
+                                    system("cls");
+                                    menu_level_3_left();
+                                    std::cin >> pil3;
+                                    if (pil3 == 'B') {
+                                        npl = "Baik"; 
+                                        break;
+                                    }
+                                    else if (pil3 == 'b') {
+                                        npl = "Bermasalah";
+                                        break;
+                                    }
+                                    else error();
+                                } while (pil3 != 'B' || pil3 != 'b');
+                                break;
+                            }
+                            else error();
+                        } while (pil1 != 'P' || pil1 != 'W' || pil1 != 'S');
                         break;
                     }
                     else if (pil1 == 'B') {
@@ -61,8 +116,20 @@ int main(){
                             std::cin >> pil2;
                             if (pil2 == 'S') {
                                 pekerjaan = "Swasta";
-                                npl = "NULL";
-                                system("cls");
+                                do {
+                                    system("cls");
+                                    menu_level_3_left();
+                                    std::cin >> pil3;
+                                    if (pil3 == 'B') {
+                                        npl = "Baik"; 
+                                        break;
+                                    }
+                                    else if (pil3 == 'b') {
+                                        npl = "Bermasalah";
+                                        break;
+                                    }
+                                    else error();
+                                } while (pil3 != 'B' || pil3 != 'b');
                                 break;
                             }
                             else if (pil2 == 'W') {
@@ -73,12 +140,10 @@ int main(){
                                     std::cin >> pil3;
                                     if (pil3 == 'B') {
                                         npl = "Baik";
-                                        system("cls");
                                         break;
                                     }
                                     else if (pil3 == 'b') {
                                         npl = "Bermasalah";
-                                        system("cls");
                                         break;
                                     }
                                     else error();
@@ -97,14 +162,25 @@ int main(){
                             std::cin >> pil2;
                             if (pil2 == 'P') {
                                 pekerjaan = "PNS";
-                                npl = "-";
-                                system("cls");
+                                do {
+                                    system("cls"); 
+                                    menu_level_3_left();
+                                    std::cin >> pil3;
+                                    if (pil3 == 'B') {
+                                        npl = "Baik";
+                                        break;
+                                    }
+                                    else if (pil3 == 'b') {
+                                        npl = "Bermasalah";
+                                        break;
+                                    }
+                                    else error();
+                                } while (pil3 != 'B' || pil3 != 'b');
                                 break;
                             }
                             else if (pil2 == 'S') {
                                 pekerjaan = "Swasta";
                                 npl = "Baik";
-                                system("cls");
                                 break;
                             }
                             else error();
@@ -164,10 +240,18 @@ int main(){
                         system("cls");
                     }
                     else if (p_help->pekerjaan == "Swasta") {
-                        loading();
-                        std::cout << "Kelas Sedang dan Kelas Atas\n";
-                        system("pause");
-                        system("cls");
+                        if (p_help->npl == "Baik") {
+                            loading();
+                            std::cout << "Kelas Atas\n";
+                            system("pause");
+                            system("cls");
+                        }
+                        else if (p_help->npl == "Bermasalah") {
+                            loading();
+                            std::cout << "Kelas Sedang\n";
+                            system("pause");
+                            system("cls");
+                        }
                     }
                 }
             }

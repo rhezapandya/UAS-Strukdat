@@ -75,13 +75,13 @@ void delete_by_key(pointer &head, pointer &p_delete, std::string key){
 void traversal_data_nasabah(list &head){
     pointer curr = head;
     int i = 1;
-    while(curr != nullptr){
-        std::cout << "| " << std::setiosflags(std::ios::left) << std::setw(4) << i << std::setfill(' ') << "|";
-        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(5) << curr->kode << std::setfill(' ') << "|";
-        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(25) << curr->nama << std::setfill(' ') << "|";
-        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(12) << curr->jaminan << std::setfill(' ') << "|";
-        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(11) << curr->pekerjaan << std::setfill(' ') << "|";
-        std::cout << " " << std::setiosflags(std::ios::left) << std::setw(11) << curr->npl << std::setfill(' ') << "|\n";
+    while (curr != nullptr) {
+        std::cout << '|' << std::setw(1) << std::setfill(' ') << std::setw(4) << i << std::setfill(' ') << '|';
+        std::cout << " " << std::setw(5) << curr->kode << std::setfill(' ') << '|';
+        std::cout << " " << std::setw(25) << curr->nama << std::setfill(' ') << '|';
+        std::cout << " " << std::setw(12) << curr->jaminan << std::setfill(' ') << '|';
+        std::cout << " " << std::setw(11) << curr->pekerjaan << std::setfill(' ') << '|';
+        std::cout << " " <<  std::setw(11) << curr->npl << std::setfill(' ') << '|' << std::endl;
         curr = curr->next;
         i++;
     }
