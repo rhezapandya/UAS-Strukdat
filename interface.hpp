@@ -3,13 +3,13 @@
 // General
 void header(std::string judul) {
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
-    std::cout << judul << "\n";
+    std::cout << judul << std::endl;
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
 }
 void tampilan_judul_submenu(std::string judul_submenu, int batas){
-    std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << "\n";
-    std::cout << judul_submenu << "\n";
-    std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << "\n";
+    std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
+    std::cout << "\t" << judul_submenu << std::endl;
+    std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
 }
 void main_menu() {
     std::cout << "\nMain Menu\n";
@@ -40,27 +40,29 @@ void loading()
 
 void error() {
     system("cls");
-    std::cout << "Input Salah !!!";
+    std::cout << "Input Salah !!!\n\n";
     system("pause");
     system("cls");
 }
 
 // Menu 1 : Data Nasabah Bank
-void tampilan_data_nasabah(list &head){
+void tampilan_data_nasabah(list &head) {
     tampilan_judul_submenu("\t\t\t\tData Nasabah Bank", 80);
-    std::cout << "| " << "No  |";
+    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
+    std::cout << "| " << "No |";
     std::cout << " " << "Kode |";
-    std::cout << " " << "\t\tNama\t        |";
+    std::cout << " " << "\t\tNama\t       |";
     std::cout << " " << "  Jaminan   |";
     std::cout << " " << " Pekerjaan |";
-    std::cout << " " << "\tNPL     |\n";
+    std::cout << " " << "\tNPL    |\n";
+    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     traversal_data_nasabah(head);
-    std::cout << "\n";
+    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
 }
 
 // Menu 2 : Input Data Nasabah Bank Baru
-void menu_level_1(){
-    std::cout << "Masukkan Jaminan Anda!\n";
+void menu_level_1() {
+    std::cout << "Masukkan Jaminan !\n";
     std::cout << "[L] -> Logam Mulia (LM)\n";
     std::cout << "[B] -> Bukti Kepemilikan Kendaraan Bermotor (BPKB)\n";
     std::cout << "[S] -> Sertifikat Hak Milik (SHM)\n";
