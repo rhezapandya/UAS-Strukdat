@@ -11,13 +11,12 @@ int main(){
     std::string jaminan;
     std::string pekerjaan;
     std::string npl;
-    std::string key;
     pointer p_help, p_delete;
     list first = nullptr;
 
     // Data Nasabah Awal
     new_element(first, "N001", "Contoh 1", "LM", "PNS", "Baik");
-    insert_last(first, "N002", "Contoh 2", "BPKB", "Swasta", "Bermasalah");
+    insert_last(first, "N002", "Contoh 2", "BPKB", "Swasta", "-");
     insert_last(first, "N003", "Contoh 3", "BPKB", "Wiraswasta", "Baik");
 
     loading();
@@ -253,81 +252,27 @@ int main(){
             search(first, p_help, kode);
             if (p_help != nullptr) {
                 if (p_help->jaminan == "LM") {
-                    loading();
-                    tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
-                    std::cout << "Kode Nasabah      : " << p_help->kode << "\n";
-                    std::cout << "Nama Nasabah      : " << p_help->nama << "\n";
-                    std::cout << "Jaminan Nasabah   : " << p_help->jaminan << "\n";
-                    std::cout << "Pekerjaan Nasabah : " << p_help->pekerjaan << "\n";
-                    std::cout << "NPL Nasabah       : " << p_help->npl << "\n\n";
-                    std::cout << "Anda Tergolong Nasabah Kelas Mikro!\n\n";
-                    system("pause");
-                    system("cls");
+                    tampilan_menu_klasifikasi(p_help, "Mikro");
                 }
                 else if (p_help->jaminan == "BPKB") {
                     if (p_help->pekerjaan == "Swasta") {
-                        loading();
-                        tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
-                        std::cout << "Kode Nasabah      : " << p_help->kode << "\n";
-                        std::cout << "Nama Nasabah      : " << p_help->nama << "\n";
-                        std::cout << "Jaminan Nasabah   : " << p_help->jaminan << "\n";
-                        std::cout << "Pekerjaan Nasabah : " << p_help->pekerjaan << "\n";
-                        std::cout << "NPL Nasabah       : " << p_help->npl << "\n\n";
-                        std::cout << "Anda Tergolong Nasabah Kelas Sedang!\n\n";
-                        system("pause");
-                        system("cls");
+                        tampilan_menu_klasifikasi(p_help, "Sedang");
                     }
                     else if (p_help->pekerjaan == "Wiraswasta") {
                         if (p_help->npl == "Baik") {
-                            loading();
-                            tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
-                            std::cout << "Kode Nasabah      : " << p_help->kode << "\n";
-                            std::cout << "Nama Nasabah      : " << p_help->nama << "\n";
-                            std::cout << "Jaminan Nasabah   : " << p_help->jaminan << "\n";
-                            std::cout << "Pekerjaan Nasabah : " << p_help->pekerjaan << "\n";
-                            std::cout << "NPL Nasabah       : " << p_help->npl << "\n\n";
-                            std::cout << "Anda Tergolong Nasabah Kelas Atas!\n\n";
-                            system("pause");
-                            system("cls");
+                            tampilan_menu_klasifikasi(p_help, "Atas");
                         }
                         else if (p_help->npl == "Bermasalah") {
-                            loading();
-                            tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
-                            std::cout << "Kode Nasabah      : " << p_help->kode << "\n";
-                            std::cout << "Nama Nasabah      : " << p_help->nama << "\n";
-                            std::cout << "Jaminan Nasabah   : " << p_help->jaminan << "\n";
-                            std::cout << "Pekerjaan Nasabah : " << p_help->pekerjaan << "\n";
-                            std::cout << "NPL Nasabah       : " << p_help->npl << "\n\n";
-                            std::cout << "Anda Tergolong Nasabah Kelas Mikro!\n\n";
-                            system("pause");
-                            system("cls");
+                            tampilan_menu_klasifikasi(p_help, "Mikro");
                         }
                     }
                 }
                 else if (p_help->jaminan == "SHM") {
                     if (p_help->pekerjaan == "PNS") {
-                        loading();
-                        tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
-                        std::cout << "Kode Nasabah      : " << p_help->kode << "\n";
-                        std::cout << "Nama Nasabah      : " << p_help->nama << "\n";
-                        std::cout << "Jaminan Nasabah   : " << p_help->jaminan << "\n";
-                        std::cout << "Pekerjaan Nasabah : " << p_help->pekerjaan << "\n";
-                        std::cout << "NPL Nasabah       : " << p_help->npl << "\n\n";
-                        std::cout << "Anda Tergolong Nasabah Kelas Sedang!\n\n";
-                        system("pause");
-                        system("cls");
+                        tampilan_menu_klasifikasi(p_help, "Sedang");
                     }
                     else if (p_help->pekerjaan == "Swasta") {
-                        loading();
-                        tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
-                        std::cout << "Kode Nasabah      : " << p_help->kode << "\n";
-                        std::cout << "Nama Nasabah      : " << p_help->nama << "\n";
-                        std::cout << "Jaminan Nasabah   : " << p_help->jaminan << "\n";
-                        std::cout << "Pekerjaan Nasabah : " << p_help->pekerjaan << "\n";
-                        std::cout << "NPL Nasabah       : " << p_help->npl << "\n\n";
-                        std::cout << "Anda Tergolong Nasabah Kelas Sedang dan Kelas Atas!\n\n";
-                        system("pause");
-                        system("cls");
+                        tampilan_menu_klasifikasi(p_help, "Sedang atau Kelas Atas");
                     }
                 }
             }

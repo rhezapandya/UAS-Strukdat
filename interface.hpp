@@ -8,7 +8,7 @@ void header(std::string judul) {
 }
 void tampilan_judul_submenu(std::string judul_submenu, int batas){
     std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
-    std::cout << judul_submenu << std::endl;
+    std::cout << "\t" << judul_submenu << std::endl;
     std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
 }
 void main_menu() {
@@ -47,7 +47,7 @@ void error() {
 
 // Menu 1 : Data Nasabah Bank
 void tampilan_data_nasabah(list &head) {
-    tampilan_judul_submenu("\t\t\tData Nasabah Bank", 80);
+    tampilan_judul_submenu("\t\t\t\tData Nasabah Bank", 80);
     std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     std::cout << "| " << "No |";
     std::cout << " " << "Kode |";
@@ -58,7 +58,6 @@ void tampilan_data_nasabah(list &head) {
     std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     traversal_data_nasabah(head);
     std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
-    std::cout << "\n";
 }
 
 // Menu 2 : Input Data Nasabah Bank Baru
@@ -127,6 +126,21 @@ void klasifikasi() {
     std::cout << "        |         |                           |        \n";
     std::cout << "     K. Atas   K. Mikro                   K. Sedang    \n";
     std::cout << "                                          K. Atas      \n\n";
+    system("pause");
+    system("cls");
+}
+
+// Menu 4 : Jalankan Pengklasifikasian
+void tampilan_menu_klasifikasi(list &head, std::string kelas){
+    loading();
+    tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
+    std::cout << "Kode Nasabah      : " << head->kode << "\n";
+    std::cout << "Nama Nasabah      : " << head->nama << "\n";
+    std::cout << "Jaminan Nasabah   : " << head->jaminan << "\n";
+    std::cout << "Pekerjaan Nasabah : " << head->pekerjaan << "\n";
+    std::cout << "NPL Nasabah       : " << head->npl << "\n";
+    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << std::endl;
+    std::cout << "Anda Tergolong Nasabah Kelas " << kelas << " !\n\n";
     system("pause");
     system("cls");
 }
