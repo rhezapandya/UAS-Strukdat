@@ -130,6 +130,21 @@ void klasifikasi() {
     system("cls");
 }
 
+// Menu 4 : Jalankan Pengklasifikasian
+void tampilan_menu_klasifikasi(list &head, std::string kelas){
+    loading();
+    tampilan_judul_submenu("\tKlasifikasi Nasabah", 40);
+    std::cout << "Kode Nasabah      : " << head->kode << "\n";
+    std::cout << "Nama Nasabah      : " << head->nama << "\n";
+    std::cout << "Jaminan Nasabah   : " << head->jaminan << "\n";
+    std::cout << "Pekerjaan Nasabah : " << head->pekerjaan << "\n";
+    std::cout << "NPL Nasabah       : " << head->npl << "\n";
+    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << std::endl;
+    std::cout << "Anda Tergolong Nasabah Kelas " << kelas << " !\n\n";
+    system("pause");
+    system("cls");
+}
+
 // Menu 5 : Program Developer
 void anggota() {
     system("cls");
