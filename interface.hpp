@@ -149,7 +149,7 @@ void tampilan_menu_klasifikasi(list &head, std::string kelas){
 // Menu 5 : Program Developer
 void anggota() {
     system("cls");
-    tampilan_judul_submenu("\t   PROGRAM DEVELOPER", 40);
+    tampilan_judul_submenu("\t    PROGRAM DEVELOPER", 40);
     std::cout << "This Program is Developed by : \n";
     std::cout << "1. Affan Rifqy Kurniadi - 140810200003\n";
     std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n\n";
