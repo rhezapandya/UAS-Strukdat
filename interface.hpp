@@ -90,7 +90,7 @@ void menu_level_2_shm(){
     std::cout << "Pekerjaan : "; 
 }
 void menu_level_3_full(){
-    std::cout << "Masukkan NPL(Non-Performing Loan) Anda!\n";
+    std::cout << "Masukkan NPL (Prestasi) Anda!\n";
     std::cout << "[B] -> Baik\n";
     std::cout << "[b] -> Bermasalah\n";
     std::cout << "[T] -> Tidak Ada\n";
