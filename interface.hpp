@@ -6,10 +6,10 @@ void header(std::string judul) {
     std::cout << judul << std::endl;
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
 }
-void tampilan_judul_submenu(std::string judul_submenu){
-    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << std::endl;
+void tampilan_judul_submenu(std::string judul_submenu, int batas){
+    std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
     std::cout << "\t" << judul_submenu << std::endl;
-    std::cout << '=' << std::setw(40) << std::setfill('=') << '=' << std::endl;
+    std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
 }
 void main_menu() {
     std::cout << "\nMain Menu\n";
@@ -47,7 +47,7 @@ void error() {
 
 // Menu 1 : Data Nasabah Bank
 void tampilan_data_nasabah(list &head) {
-    tampilan_judul_submenu("        Data Nasabah Bank");
+    tampilan_judul_submenu("\t\t\t\tData Nasabah Bank", 80);
     std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     std::cout << "| " << "No |";
     std::cout << " " << "Kode |";
@@ -68,35 +68,44 @@ void menu_level_1() {
     std::cout << "[S] -> Sertifikat Hak Milik (SHM)\n";
     std::cout << "Jaminan : ";
 }
-void menu_level_1_pekerjaan() {
-    std::cout << "Masukkan Pekerjaan !" << std::endl;
-    std::cout << "[P] : PNS\n";
-    std::cout << "[W] : Wiraswasta\n";
-    std::cout << "[S] : Swasta\n";
-    std::cout << "Pekerjaan : ";
-}
-void menu_level_2_left() {
-    std::cout << "Masukkan Pekerjaan !\n";
-    std::cout << "[W] : Wiraswasta\n";
-    std::cout << "[S] : Swasta\n";
+void menu_level_2_full(){
+    std::cout << "Masukkan Pekerjaan Anda!\n";
+    std::cout << "[W] -> Wiraswasta\n";
+    std::cout << "[S] -> Swasta\n";
+    std::cout << "[P] -> PNS\n";
+    std::cout << "[L] -> Lainnya\n";
     std::cout << "Pekerjaan : "; 
 }
-void menu_level_3_left() {
-    std::cout << "Masukkan NPL !\n";
-    std::cout << "[B] : Baik\n";
-    std::cout << "[b] : Bermasalah\n";
+void menu_level_2_bpkb(){
+    std::cout << "Masukkan Pekerjaan Anda!\n";
+    std::cout << "[W] -> Wiraswasta\n";
+    std::cout << "[S] -> Swasta\n";
+    std::cout << "Pekerjaan : "; 
+}
+void menu_level_2_shm(){
+    std::cout << "Masukkan Pekerjaan Anda!\n";
+    std::cout << "[S] -> Swasta\n";
+    std::cout << "[P] -> PNS\n";
+    std::cout << "Pekerjaan : "; 
+}
+void menu_level_3_full(){
+    std::cout << "Masukkan NPL(Non-Performing Loan) Anda!\n";
+    std::cout << "[B] -> Baik\n";
+    std::cout << "[b] -> Bermasalah\n";
+    std::cout << "[T] -> Tidak Ada\n";
     std::cout << "NPL : ";
 }
-void menu_level_2_right() {
-    std::cout << "Masukkan Pekerjaan !\n";
-    std::cout << "[P] : PNS\n";
-    std::cout << "[S] : Swasta\n";
-    std::cout << "Pekerjaan : ";
+void menu_level_3_swasta(){
+    std::cout << "Masukkan NPL(Non-Performing Loan) Anda!\n";
+    std::cout << "[B] -> Baik\n";
+    std::cout << "[b] -> Bermasalah\n";
+    std::cout << "NPL : ";
 }
 
 // Menu 3 : Mekanisme Pengklasifikasian
 void klasifikasi() {
     system("cls");
+    tampilan_judul_submenu("\tMekanisme Pengklasifikasian", 40);
     std::cout << "Overview Pengklasifikasian\n\n";
     std::cout << "               JAMINAN                                 \n";
     std::cout << "     _____________|________________                    \n";
@@ -124,9 +133,10 @@ void klasifikasi() {
 // Menu 5 : Program Developer
 void anggota() {
     system("cls");
-    std::cout << "Developed by : \n";
+    tampilan_judul_submenu("\tProgram Developer", 40);
+    std::cout << "This Program is Developed by : \n";
     std::cout << "1. Affan Rifqy Kurniadi - 140810200003\n";
-    std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n" << std::endl;
+    std::cout << "2. Rheza Pandya Andhikaputra - 140810200023\n\n";
     system("pause");
     system("cls");
 }
