@@ -76,6 +76,9 @@ void delete_by_key(pointer &head, pointer &p_delete, std::string key){
             p_delete->next = nullptr;
             }
             delete p_delete;
+            std::cout << "Data Berhasil Dihapus\n\n";
+            system("pause");
+            system("cls");
         }
 }
 
