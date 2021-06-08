@@ -27,11 +27,16 @@ void new_element(pointer &pBaru, std::string kode, std::string nama, std::string
 void insert_last(pointer &head, std::string kode, std::string nama, std::string jaminan, std::string pekerjaan, std::string npl){
     pointer pBaru;
     new_element(pBaru, kode, nama, jaminan, pekerjaan, npl);
-    pointer curr = head;
-        while(curr->next != nullptr){
+    if (head == nullptr) {
+        head = pBaru;
+    }
+    else {
+        pointer curr = head;
+        while (curr->next != nullptr){
             curr = curr->next;
         }
-        curr ->next = pBaru;
+        curr->next = pBaru;
+    }
 }
 
 void search(pointer &head, pointer &pBantu, std::string key) 
@@ -49,7 +54,9 @@ void search(pointer &head, pointer &pBantu, std::string key)
 void delete_by_key(pointer &head, pointer &p_delete, std::string key){
     search(head, p_delete, key);
         if (head == nullptr || p_delete == nullptr) {
-        std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
+            std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
+            system("pause");
+            system("cls");
         } else {
             if (p_delete == head) {
             head = head->next;
@@ -73,16 +80,38 @@ void delete_by_key(pointer &head, pointer &p_delete, std::string key){
 }
 
 void traversal_data_nasabah(list &head){
-    pointer curr = head;
-    int i = 1;
-    while (curr != nullptr) {
-        std::cout << '|' << std::setw(1) << std::setfill(' ') << std::setw(4) << i << std::setfill(' ') << '|';
-        std::cout << " " << std::setw(5) << curr->kode << std::setfill(' ') << '|';
-        std::cout << " " << std::setw(25) << curr->nama << std::setfill(' ') << '|';
-        std::cout << " " << std::setw(12) << curr->jaminan << std::setfill(' ') << '|';
-        std::cout << " " << std::setw(11) << curr->pekerjaan << std::setfill(' ') << '|';
-        std::cout << " " <<  std::setw(11) << curr->npl << std::setfill(' ') << '|' << std::endl;
-        curr = curr->next;
-        i++;
+    if (head == nullptr) {
+        std::cout << "\t\t\t\tDATA KOSONG\n";
+    }
+    else {
+        pointer curr = head;
+        int i = 1;
+        while (curr != nullptr) {
+            std::cout << '|' << std::setw(1) << std::setfill(' ') << std::setw(4) << i << std::setfill(' ') << '|';
+            std::cout << " " << std::setw(5) << curr->kode << std::setfill(' ') << '|';
+            std::cout << " " << std::setw(25) << curr->nama << std::setfill(' ') << '|';
+            std::cout << " " << std::setw(12) << curr->jaminan << std::setfill(' ') << '|';
+            std::cout << " " << std::setw(11) << curr->pekerjaan << std::setfill(' ') << '|';
+            std::cout << " " <<  std::setw(11) << curr->npl << std::setfill(' ') << '|' << std::endl;
+            curr = curr->next;
+            i++;
+        }
+    }
+}
+
+void traversal_data_klasifikasi(list &head) {
+    if (head == nullptr) {
+        std::cout << "\t   DATA KOSONG\n";
+    }
+    else {
+        pointer curr = head;
+        int i = 1;
+        while (curr != nullptr) {
+            std::cout << '|' << std::setw(1) << std::setfill(' ') << std::setw(4) << i << std::setfill(' ') << '|';
+            std::cout << " " << std::setw(5) << curr->kode << std::setfill(' ') << '|';
+            std::cout << " " << std::setw(25) << curr->nama << std::setfill(' ') << '|' << std::endl;
+            curr = curr->next;
+            i++;
+        }
     }
 }

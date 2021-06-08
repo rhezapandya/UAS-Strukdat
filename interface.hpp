@@ -6,11 +6,13 @@ void header(std::string judul) {
     std::cout << judul << std::endl;
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
 }
-void tampilan_judul_submenu(std::string judul_submenu, int batas){
+
+void tampilan_judul_submenu(std::string judul_submenu, int batas) {
     std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
     std::cout << judul_submenu << std::endl;
     std::cout << '=' << std::setw(batas) << std::setfill('=') << '=' << std::endl;
 }
+
 void main_menu() {
     std::cout << "\n\t       [ Main Menu ]\n\n";
     std::cout << "1. Data Nasabah Bank\n";
@@ -21,6 +23,7 @@ void main_menu() {
     std::cout << "6. Keluar Program\n";
     std::cout << '+' << std::setw(40) << std::setfill('-') << '+' << std::endl;
 }
+
 void loading()
 {
     system("cls");
@@ -47,18 +50,33 @@ void error() {
 }
 
 // Menu 1 : Data Nasabah Bank
-void tampilan_data_nasabah(list &head) {
-    tampilan_judul_submenu("\t\t\t\tDATA NASABAH BANK", 80);
-    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
-    std::cout << "| " << "No |";
-    std::cout << " " << "Kode |";
-    std::cout << " " << "\t\tNama\t       |";
-    std::cout << " " << "  Jaminan   |";
-    std::cout << " " << " Pekerjaan |";
-    std::cout << " " << "\tNPL    |\n";
-    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
-    traversal_data_nasabah(head);
-    std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
+void tampilan_data_nasabah(list &head, pointer &p_delete, std::string kode) {
+    int pil;
+    do {
+        tampilan_judul_submenu("\t\t\t\tDATA NASABAH BANK", 79);
+        std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
+        std::cout << "| No |" << " Kode |" << " \t\tNama\t       |" << "   Jaminan   |" << "  Pekerjaan |" << " \tNPL    |\n";
+        std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
+        traversal_data_nasabah(head);
+        std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
+        std::cout << '=' << std::setw(79) << std::setfill('=') << '=' << std::endl;
+        std::cout << "1. Hapus data\n";
+        std::cout << "2. Kembali\n\nInput pilihan : ";
+        std::cin >> pil;
+        if (pil == 1) {
+            std::cout << '=' << std::setw(79) << std::setfill('=') << '=' << std::endl;
+            std::cout << "Masukkan kode nasabah : "; std::cin >> kode;
+            loading();
+            delete_by_key(head, p_delete, kode);
+        }
+        else if (pil == 2) {
+            system("cls");
+            break;
+        }
+        else {
+            error();
+        }
+    } while (pil != 2);
 }
 
 // Menu 2 : Input Data Nasabah Bank Baru
@@ -69,6 +87,7 @@ void menu_level_1() {
     std::cout << "[S] -> Sertifikat Hak Milik (SHM)\n";
     std::cout << "Jaminan : ";
 }
+
 void menu_level_2_full(){
     std::cout << "Masukkan Pekerjaan Anda!\n";
     std::cout << "[W] -> Wiraswasta\n";
@@ -77,18 +96,21 @@ void menu_level_2_full(){
     std::cout << "[L] -> Lainnya\n";
     std::cout << "Pekerjaan : "; 
 }
+
 void menu_level_2_bpkb(){
     std::cout << "Masukkan Pekerjaan Anda!\n";
     std::cout << "[W] -> Wiraswasta\n";
     std::cout << "[S] -> Swasta\n";
     std::cout << "Pekerjaan : "; 
 }
+
 void menu_level_2_shm(){
     std::cout << "Masukkan Pekerjaan Anda!\n";
     std::cout << "[S] -> Swasta\n";
     std::cout << "[P] -> PNS\n";
     std::cout << "Pekerjaan : "; 
 }
+
 void menu_level_3_full(){
     std::cout << "Masukkan NPL (Prestasi) Anda!\n";
     std::cout << "[B] -> Baik\n";
@@ -96,6 +118,7 @@ void menu_level_3_full(){
     std::cout << "[T] -> Tidak Ada\n";
     std::cout << "NPL : ";
 }
+
 void menu_level_3_swasta(){
     std::cout << "Masukkan NPL (Prestasi) Anda!\n";
     std::cout << "[B] -> Baik\n";
@@ -132,7 +155,18 @@ void klasifikasi() {
 }
 
 // Menu 4 : Jalankan Pengklasifikasian
-void tampilan_menu_klasifikasi(list &head, std::string kelas){
+void tampilan_data_klasifikasi(list &head) {
+    tampilan_judul_submenu("\t   KLASIFIKASI NASABAH", 39);
+    std::cout << '+' << std::setw(39) << std::setfill('-') << '+' << std::endl;
+    std::cout << "| No |" << " Kode |" << " \t\tNama\t       |\n";
+    std::cout << '+' << std::setw(39) << std::setfill('-') << '+' << std::endl;
+    traversal_data_klasifikasi(head);
+    std::cout << '+' << std::setw(39) << std::setfill('-') << '+' << std::endl;
+    std::cout << '=' << std::setw(39) << std::setfill('=') << '=' << std::endl;
+    std::cout << "1. Klasifikasi Data\n2. Kembali\n\nInput Pilihan : ";
+}
+
+void tampilan_menu_klasifikasi(list &head, std::string kelas) {
     loading();
     tampilan_judul_submenu("\t   KLASIFIKASI NASABAH", 40);
     std::cout << "Kode Nasabah      : " << head->kode << "\n";
