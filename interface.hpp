@@ -66,7 +66,8 @@ void tampilan_data_nasabah(list &head, pointer &p_delete, std::string kode) {
     traversal_data_nasabah(head);
     std::cout << '+' << std::setw(79) << std::setfill('-') << '+' << std::endl;
     std::cout << '=' << std::setw(79) << std::setfill('=') << '=' << std::endl;
-    std::cout << "\n";
+    std::cout << "\nLegends\nNPL  : Prestasi\nLM   : Logam Mulia\n";
+    std::cout << "BPKB : Bukti Kepemilikan Kendaraan Bermotor\nSHM  : Sertifikat Hak Milik\n\n";
     system("pause");
     system("cls");
 }
@@ -161,6 +162,21 @@ void klasifikasi() {
     std::cout << "        |         |                           |        \n";
     std::cout << "     K. Atas   K. Mikro                   K. Sedang    \n";
     std::cout << "                                          K. Atas      \n\n";
+    std::cout << "Ketentuan Pengklasifikasian\n\n";
+    std::cout << "1. Jika jaminannya LOGAM MULIA maka akan mendapatkan tingkat kelas kelayakan mikro.\n";
+    std::cout << "2. Namun jika jaminan BPKB dan SERTIFIKAT HM tidak bisa menentukan tingkat kelas kelayakan,\n";
+    std::cout << "   karena belum final keputusannya maka digunakan cabang kedua yang lebih tinggi nilai gainnya\n";
+    std::cout << "   yaitu cabang pekerjaan dimana jaminan BPKB dengan pekerjaan Swasta mendapatkan tingkat\n";
+    std::cout << "   kelas kelayakan sedang.\n";
+    std::cout << "3. Sedangkan jaminan BPKB dengan pekerjaan Wiraswasta belum mendapatkan keputusan final,\n";
+    std::cout << "   maka digunakan cabang ketiga yaitu cabang Prestasi dimana jaminan BPKB dengan pekerjaan\n";
+    std::cout << "   Wiraswasta dan Prestasi baik mendapatkan tingkat kelayakan kelas atas.\n";
+    std::cout << "4. Sedangkan jaminan BPKB dengan pekerjaan Wiraswasta dan Prestasi bermasalah mendapatkan\n";
+    std::cout << "   tingkat kelayakan kelas mikro.\n";
+    std::cout << "5. Jika jaminan SERTIFIKAT HM dengan pekerjaan PNS mendapatkan tingkat kelas kelayakan atas.\n";
+    std::cout << "6. Jika jaminan SERTIFIKAT HM dengan pekerjaan Swasta belum mendapatkan keputusan final,\n";
+    std::cout << "   maka digunakan cabang ketiga yaitu cabang Prestasi dimana jaminan SERTIFIKAT HM dengan\n";
+    std::cout << "   pekerjaan Swasta dan Prestasi baik mendapatkan tingkat kelayakan kelas atas dan sedang.\n\n";
     system("pause");
     system("cls");
 }
