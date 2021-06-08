@@ -80,6 +80,12 @@ void tampilan_data_nasabah(list &head, pointer &p_delete, std::string kode) {
 }
 
 // Menu 2 : Input Data Nasabah Bank Baru
+void menu_pilihan_awal() {
+    tampilan_judul_submenu("      INPUT DATA NASABAH BANK BARU", 40);
+    std::cout << "\n\t       [ Menu ]\n\n";
+    std::cout << "1. Input Data\n2. Kembali\n\nInput Pilihan : "; 
+}
+
 void menu_level_1() {
     std::cout << "Masukkan Jaminan !\n";
     std::cout << "[L] -> Logam Mulia (LM)\n";
