@@ -4,7 +4,6 @@ int main(){
     int opsi_main_menu, banyak_data, pilihan_klasifikasi, pil_menu_input, pil_menu_hapus;
     char pil1, pil2, pil3;
 
-
     // Deklarasi Data Nasabah
     std::string kode;
     std::string nama;
@@ -34,7 +33,7 @@ int main(){
             loading();
             do {
                 tampilan_judul_submenu("\tINPUT DATA NASABAH BANK BARU", 40);
-                std::cout << "1. Input Data Baru\n2. Kembali\n\nOpsi : ";
+                std::cout << "\n\t       [ Menu ]\n\n1. Input Data Baru\n2. Kembali\n\nOpsi : ";
                 std::cin >> pil_menu_input;
                 system("cls");
                 switch(pil_menu_input){
@@ -266,17 +265,17 @@ int main(){
             loading();
             do {
                 tampilan_judul_submenu("\tHAPUS DATA NASABAH BANK", 40);
-                std::cout << "1. Hapus Data\n2. Kembali\n\nOpsi : ";
+                tampilan_data_half(first);
+                std::cout << "\n\t       [ Menu ]\n\n1. Hapus Data\n2. Kembali\n\nOpsi : ";
                 std::cin >> pil_menu_hapus;
-                system("cls");
                 switch(pil_menu_hapus){
                     case 1 :
-                        tampilan_judul_submenu("\tHAPUS DATA NASABAH BANK", 40);
+                        std::cout << '=' << std::setw(39) << std::setfill('=') << '=' << std::endl;
                         std::cout << "Masukkan Kode Nasabah : "; std::cin >> kode;
                         search(first, p_help, kode);
                         if (p_help != nullptr) {
-                            tampilan_hapus_data_nasabah_individu(p_help);
-                            std::cout << "\n1. Hapus Data ini\n2. Kembali\n\nOpsi : "; std::cin >> pil_menu;
+                            tampilan_data_nasabah_individu(p_help, "\t   DATA NASABAH");
+                            std::cout << "\n\t       [ Menu ]\n\n1. Hapus Data ini\n2. Kembali\n\nOpsi : "; std::cin >> pil_menu;
                             system("cls");
                             switch(pil_menu){
                                 case 1:
@@ -318,50 +317,71 @@ int main(){
             case 5:
             loading();
             do {
-                tampilan_data_klasifikasi(first);
+                tampilan_judul_submenu("\t   KLASIFIKASI NASABAH", 39);
+                tampilan_data_half(first);
+                std::cout << "\n\t       [ Menu ]\n\n1. Klasifikasi Data\n2. Kembali\n\nOpsi : ";
                 std::cin >> pilihan_klasifikasi;
                 switch (pilihan_klasifikasi) {
                     case 1:
-                    std::cout << '=' << std::setw(39) << std::setfill('=') << '=' << std::endl;
-                    std::cout << "Masukkan Kode Nasabah : "; std::cin >> kode;
-                    search(first, p_help, kode);
-                    if (p_help != nullptr) {
-                        if (p_help->jaminan == "LM") {
-                            tampilan_menu_klasifikasi(p_help, "Mikro");
-                        }
-                        else if (p_help->jaminan == "BPKB") {
-                            if (p_help->pekerjaan == "Swasta") {
-                                tampilan_menu_klasifikasi(p_help, "Sedang");
+                        std::cout << '=' << std::setw(39) << std::setfill('=') << '=' << std::endl;
+                        std::cout << "Masukkan Kode Nasabah : "; std::cin >> kode;
+                        search(first, p_help, kode);
+                        if (p_help != nullptr) {
+                            if (p_help->jaminan == "LM") {
+                                tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
+                                std::cout << "Anda Tergolong Nasabah Kelas Mikro !\n\n";
+                                system("pause");
+                                system("cls");
                             }
-                            else if (p_help->pekerjaan == "Wiraswasta") {
-                                if (p_help->npl == "Baik") {
-                                    tampilan_menu_klasifikasi(p_help, "Atas");
+                            else if (p_help->jaminan == "BPKB") {
+                                if (p_help->pekerjaan == "Swasta") {
+                                    tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
+                                    std::cout << "Anda Tergolong Nasabah Kelas Sedang !\n\n";
+                                    system("pause");
+                                    system("cls");
                                 }
-                                else if (p_help->npl == "Bermasalah") {
-                                    tampilan_menu_klasifikasi(p_help, "Mikro");
+                                else if (p_help->pekerjaan == "Wiraswasta") {
+                                    if (p_help->npl == "Baik") {
+                                        tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
+                                        std::cout << "Anda Tergolong Nasabah Kelas Atas !\n\n";
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                    else if (p_help->npl == "Bermasalah") {
+                                        tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
+                                        std::cout << "Anda Tergolong Nasabah Kelas Mikro !\n\n";
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                }
+                            }
+                            else if (p_help->jaminan == "SHM") {
+                                if (p_help->pekerjaan == "PNS") {
+                                    tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
+                                    std::cout << "Anda Tergolong Nasabah Kelas Sedang !\n\n";
+                                    system("pause");
+                                    system("cls");
+                                }
+                                else if (p_help->pekerjaan == "Swasta") {
+                                    tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
+                                    std::cout << "Anda Tergolong Nasabah Kelas Sedang atau Kelas Atas !\n\n";
+                                    system("pause");
+                                    system("cls");
                                 }
                             }
                         }
-                        else if (p_help->jaminan == "SHM") {
-                            if (p_help->pekerjaan == "PNS") {
-                                tampilan_menu_klasifikasi(p_help, "Sedang");
-                            }
-                            else if (p_help->pekerjaan == "Swasta") {
-                                tampilan_menu_klasifikasi(p_help, "Sedang atau Kelas Atas");
-                            }
+                        else {
+                            data_notfound();
                         }
-                    }
-                    else {
-                        data_notfound();
-                    }
-                    break;
+                        break;
 
                     case 2:
-                    system("cls");
-                    break;
+                        system("cls");
+                        break;
 
                     default:
-                    error();
+                        error();
+                        break;
                 }
             } while (pilihan_klasifikasi != 2);
             break;
