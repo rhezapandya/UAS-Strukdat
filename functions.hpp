@@ -53,33 +53,36 @@ void search(pointer &head, pointer &pBantu, std::string key)
 
 void delete_by_key(pointer &head, pointer &p_delete, std::string key){
     search(head, p_delete, key);
-        if (head == nullptr || p_delete == nullptr) {
-            std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
-            system("pause");
-            system("cls");
-        } else {
-            if (p_delete == head) {
+    if (head == nullptr || p_delete == nullptr) {
+        std::cout << "Data Nasabah Tidak Ditemukan !\n\n";
+        system("pause");
+        system("cls");
+    } 
+    else {
+        if (p_delete == head) {
             head = head->next;
             p_delete->next = nullptr;
-            } else if (p_delete->next == nullptr) {
+        }
+        else if (p_delete->next == nullptr) {
             pointer pre = head;
             while (pre->next != p_delete) {
                 pre = pre->next;
             }
             pre->next = nullptr;
-            } else {
+        } 
+        else {
             pointer pre = head;
             while (pre->next != p_delete) {
                 pre = pre->next;
             }
             pre->next = p_delete->next;
             p_delete->next = nullptr;
-            }
-            delete p_delete;
-            std::cout << "Data Berhasil Dihapus\n\n";
-            system("pause");
-            system("cls");
         }
+        delete p_delete;
+        std::cout << "Data Berhasil Dihapus\n\n";
+        system("pause");
+        system("cls");
+    }
 }
 
 void traversal_data_nasabah(list &head){

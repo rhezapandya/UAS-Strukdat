@@ -1,9 +1,7 @@
 #include "input_data.hpp"
-#include "decision_tree.hpp"
 
-int main(){
+int main() {
     int opsi_main_menu, banyak_data, pilihan_klasifikasi, pil_menu_input, pil_menu_hapus;
-    char pil1, pil2, pil3;
 
     // Deklarasi Data Nasabah
     std::string kode;
@@ -37,7 +35,7 @@ int main(){
                 std::cout << "\n\t       [ Menu ]\n\n1. Input Data Baru\n2. Kembali\n\nOpsi : ";
                 std::cin >> pil_menu_input;
                 system("cls");
-                switch(pil_menu_input){
+                switch(pil_menu_input) {
                     case 1 :
                         tampilan_judul_submenu("\tINPUT DATA NASABAH BANK BARU", 40);
                         std::cout << "Masukkan Banyak Data : "; std::cin >> banyak_data;
@@ -48,10 +46,7 @@ int main(){
                             std::cout << "\t\t [ Data " << i << " ]\n\n";
                             std::cout << "Masukkan Kode : "; std::cin >> kode; 
                             std::cout << "Masukkan Nama : "; std::getline(std::cin >> std::ws, nama);
-                            jaminan = "-";
-                            pekerjaan = "-";
-                            npl = "-";
-                            input_data_nasabah_full(pil1, pil2, pil3, jaminan, pekerjaan, npl);
+                            input_data_nasabah_full(jaminan, pekerjaan, npl);
                             insert_last(first, kode, nama, jaminan, pekerjaan, npl); 
                         }
                         data_berhasil_ditambahkan();

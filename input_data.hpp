@@ -1,6 +1,7 @@
-#include "interface.hpp"
+#include "decision_tree.hpp"
 
-void input_data_nasabah_full(int pil1, int pil2, int pil3, std::string jaminan, std::string pekerjaan, std::string npl) {
+void input_data_nasabah_full(std::string &jaminan, std::string &pekerjaan, std::string &npl) {
+    char pil1, pil2, pil3; 
     do {
         menu_level_1();
         std::cin >> pil1;
@@ -214,3 +215,4 @@ void input_data_nasabah_full(int pil1, int pil2, int pil3, std::string jaminan, 
         }
         else error();
     } while (pil1 != 'L' || pil1 != 'B' || pil1 != 'S');
+}

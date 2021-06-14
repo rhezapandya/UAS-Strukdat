@@ -140,8 +140,7 @@ void menu_level_3_swasta(){
 }
 void data_berhasil_ditambahkan(){
     loading();
-    std::cout << "Data Berhasil Ditambahkan\n";
-    std::cout << "Jika Input Salah, Maka Data akan Menjadi : '-'\n\n";
+    std::cout << "Data Berhasil Ditambahkan\n\n";
     system("pause");
     system("cls");
 }

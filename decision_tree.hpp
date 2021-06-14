@@ -1,6 +1,6 @@
 #include "interface.hpp"
 
-void decision_tree(pointer &p_help) {
+void decision_tree(pointer p_help) {
     if (p_help != nullptr) {
         if (p_help->jaminan == "LM") {
             tampilan_data_nasabah_individu(p_help,"\t   KLASIFIKASI NASABAH");
